@@ -1,1 +1,5 @@
+com\altoTurmeque\catalogoVenta\app\entities\User.class
+com\altoTurmeque\catalogoVenta\app\repositories\UserRepository.class
+com\altoTurmeque\catalogoVenta\app\controllers\UserController.class
 com\altoTurmeque\catalogoVenta\CatalogoVentaApplication.class
+com\altoTurmeque\catalogoVenta\app\services\UserService.class
