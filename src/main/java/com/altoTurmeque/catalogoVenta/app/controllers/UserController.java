@@ -26,30 +26,50 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 @CrossOrigin(origins="*")
 public class UserController {
+    /**
+     * Declaracion de parametros
+     */
     @Autowired
     private UserService service;
     
+    /**
+     * Metodo para obtener todos los usuarios
+     * @return 
+     */
     @GetMapping("/all")
-    public List<User> findAllClient(){
+    public List<User> findAllUser(){
         return service.getUsers();
     }
     
+    /**
+     * Metododo para verificar la existencia de un email
+     * @param email
+     * @return 
+     */
     @GetMapping("/{email}")
     public boolean emailExist(@PathVariable ("email") String email){
         return service.emailExist(email);
     }
     
+    /**
+     * Metodo para verificar la existencia de una cuenta
+     * @param email
+     * @param password
+     * @return 
+     */
     @GetMapping("/{email}/{password}")
     public User userAuthenticate(@PathVariable ("email") String email, @PathVariable ("password") String password){
         return service.userAuthenticate(email, password);
     }
     
+    /**
+     * Metodo para registrar un nuevo usuario
+     * @param user
+     * @return 
+     */
     @PostMapping("/new")
     public ResponseEntity newUser(@RequestBody User user){
         service.newUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-    
-    
-    
+    }    
 }
